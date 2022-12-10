@@ -38,15 +38,15 @@ if (isset($_SESSION['username'])) {
                 </div>
             </div>
             <div id="page">
-                <h1> Silahkan isi form berikut untuk menambahkan data dokter
+                <h2>Silahkan isi form berikut untuk menambahkan data dokter </h2>
                     <form method="post" action="tambah_dokter_proses.php">
-                        <table width='50%' class='table table-bordered table-striped'>
+                        <table width='100%' class='table table-bordered table-striped'>
                             <tr>
-                                <td><label for="nama">Nama Dokter :</label></td>
+                                <td><label for="nama">Nama Dokter</label></td>
                                 <td><input type="text" name="nama" placeholder="nama" /></td>
                             </tr>
                             <tr>
-                                <td><label for="jenis_kelamin">Jenis Kelamin :</label></td>
+                                <td><label for="jenis_kelamin">Jenis Kelamin</label></td>
                                 <td>
                                 <input type="radio" id="laki-laki" name="jenis_kelamin" value="L">
                                 <label for="laki-laki">Laki-Laki</label><br>
@@ -55,11 +55,20 @@ if (isset($_SESSION['username'])) {
                                 </td>	
                             </tr>
                             <tr>
-                                <td><label for="poliklinik">Poliklinik :</label></td>
-                                <td><input type="text" name="poliklinik" placeholder="poliklinik" /></td>
+                                <td><label for="poliklinik">Poliklinik</label></td>
+                                <td>
+                                <select name="poliklinik" id="poliklinik">
+                                    <option value="POLI GIGI UMUM">POLI GIGI UMUM</option>
+                                    <option value="POLI KEBIDANAN DAN KANDUNGAN">POLI KEBIDANAN DAN KANDUNGAN</option>
+                                    <option value="POLI MATA">POLI MATA</option>
+                                    <option value="POLI ANAK">POLI ANAK</option>
+                                    <option value="POLI BEDAH UMUM">POLI BEDAH UMUM</option>
+                                </select>
+                                
+                                </td>
                             </tr>
                             <tr>
-                                <td colspan="2"><center><input type="submit" value="Tambah" name="tambah"></center></td>
+                                <td colspan="2"><center><input type="submit" value="Tambah" name="tambah" style="height:30px; width:70px"></center></td>
                             </tr>
                         </table>
                     </form>

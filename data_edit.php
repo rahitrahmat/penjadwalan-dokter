@@ -64,13 +64,12 @@ while ($user_data = mysqli_fetch_array($result)) {
                 </div>
             </div>
             <div id="page">
-                <p>
-
+                
                 <form name="update_user" method="post" action="data_edit.php">
                     <table width='100%' class='table table-bordered table-striped'>
-
+                        <br>
                         <tr>
-                            <td>Nama</td>
+                            <td><label for="nama">Nama</label></td>
                             <td><input type="text" name="nama" value="<?php echo $user_data['nama']; ?>"></td>
                         </tr>
                         <tr>
@@ -84,12 +83,20 @@ while ($user_data = mysqli_fetch_array($result)) {
                         </tr>
                         <tr>
 
-                            <td>Poliklinik</td>
-                            <td><input type="text" name="poliklinik" value="<?php echo $user_data['poliklinik']; ?>"></td>
+                            <td><label for="poliklinik">Poliklinik</label></td>
+                            <td>
+                                <select name="poliklinik" id="poliklinik">
+                                    <option value="POLI GIGI UMUM">POLI GIGI UMUM</option>
+                                    <option value="POLI KEBIDANAN DAN KANDUNGAN">POLI KEBIDANAN DAN KANDUNGAN</option>
+                                    <option value="POLI MATA">POLI MATA</option>
+                                    <option value="POLI ANAK">POLI ANAK</option>
+                                    <option value="POLI BEDAH UMUM">POLI BEDAH UMUM</option>
+                                </select>    
+                            </td>
                         </tr>
                         <tr>
-                            <td><input type="hidden" name="id_dokter" value="<?php echo $_GET['id_dokter']; ?>"></td>
-                            <td><input type="submit" name="update" value="Update"></td>
+                            <input type="hidden" name="id_dokter" value="<?php echo $_GET['id_dokter']; ?>">
+                            <td colspan="2" align="middle"><input type="submit" name="update" value="Update" style="height:30px; width:70px"></td>
                         </tr>
                     </table>
                 </form>

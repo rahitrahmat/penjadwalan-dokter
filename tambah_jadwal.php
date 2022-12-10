@@ -38,13 +38,23 @@ if (isset($_SESSION['username'])) {
                 </div>
             </div>
             <div id="page">
-                <h1> Silahkan isi form berikut untuk menambahkan data jadwal
+                <h2> Silahkan isi form berikut untuk menambahkan data jadwal </h2>
                     <form method="post" action="tambah_jadwal_proses.php">
-                        <table width='50%' class='table table-bordered table-striped'>
-                            
+                        <table width='100%' class='table table-bordered table-striped'>
+                        
                             <tr>
                                 <td><label for="nama">Nama :</label></td>
-                                <td><input type="text" name="nama"></td>
+                                <td>
+                                <select id="nama" name="nama">
+                                <?php
+                                $sql = mysqli_query($conn, "select nama from dokter");
+                                while ($data = mysqli_fetch_array($sql)) {
+                                    echo "<option value=$data[nama]>$data[nama]</option>";
+                                }
+                                
+                                ?>
+                                </select>
+                                </td>
                             </tr>
                             <tr>
                                 <td><label for="hari">Hari :</label></td>
@@ -69,7 +79,7 @@ if (isset($_SESSION['username'])) {
                                 <td><input type="time" id="waktu_akhir" name="waktu_akhir"></td>
                             </tr>
                             <tr>
-                                <td colspan="2"><center><input type="submit" value="Tambah" name="tambah"></center></td>
+                                <td colspan="2"><center><input type="submit" value="Tambah" name="tambah" style="height:30px; width:70px"></center></td>
                             </tr>
                         </table>
                     </form>

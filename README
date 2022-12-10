@@ -1,16 +1,7 @@
 TO-DO LIST :
 - Edit tampilan =
 1. Tambah Data : ukuran font, ukuran text area, drop down poliklinik, ukuran button tambah
-2. Tambah Penjadwalan : ukuran font, Nama drop down (ON PROGRESS)
+2. Tambah Penjadwalan : ukuran font, Nama drop down
 - Dual Permission, 1 user cuma lihat data (cant Create,Update,Delete), 1 admin bisa semua (CRUD)
 - Edit ukuran tombol search
 - KABEH DI KEI SESSION
-- Bootstrap di list menu navbar
-
-
-
-
-Tambahan;
-- Tabel Transaksi
-- table jadwal dokter utntuk guest
-- table jadwal berobat untuk admin ???

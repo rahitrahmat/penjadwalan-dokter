@@ -69,6 +69,18 @@ while ($user_data = mysqli_fetch_array($result)) {
                     <table width='100%' class='table table-bordered table-striped'>
 
                         <tr>
+                            <td><label for="nama">Nama</label></td>
+                            <?php
+                            $sql = mysqli_query($conn, "select nama from dokter where id_dokter=$user_data[id_dokter]");
+                            while ($data = mysqli_fetch_array($sql)) {
+                                echo "<td><input type='text' size='32' name='nama' value='$data[nama]' readonly></td>";
+                            }
+                            
+                            ?>
+                            
+                            
+                        </tr>
+                        <tr>
                             <td>Hari</td>
                             <td>
                                 <select id="hari" name="hari">
@@ -92,8 +104,8 @@ while ($user_data = mysqli_fetch_array($result)) {
                             <td><input type="time" name="waktu_akhir" value="<?php echo $user_data['waktu_akhir']; ?>"></td>
                         </tr>
                         <tr>
-                            <td><input type="hidden" name="id_jadwal" value="<?php echo $_GET['id_jadwal']; ?>"></td>
-                            <td><input type="submit" name="update" value="Update"></td>
+                            <input type="hidden" name="id_jadwal" value="<?php echo $_GET['id_jadwal']; ?>">
+                            <td colspan="2" align="middle"><input type="submit" name="update" value="Update" style="height:30px; width:70px"></td>
                         </tr>
                     </table>
                 </form>
