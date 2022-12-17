@@ -11,7 +11,7 @@ $query = "SELECT * FROM admin WHERE username='$username' and password='$password
 $result = mysqli_query($conn, $query);
 if ($data = mysqli_fetch_array($result)) {
 	$_SESSION['username'] = $_POST['username'];
-	header('Location: admin/home.php');
+	header('Location: home.php');
 } else if ($username == "" or $password = "") {
 	$_SESSION['kosong'] = 'kosong';
 	header('Location: index.php');
