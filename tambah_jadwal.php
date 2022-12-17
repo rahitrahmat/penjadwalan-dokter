@@ -47,9 +47,9 @@ if (isset($_SESSION['username'])) {
                                 <td>
                                 <select id="nama" name="nama">
                                 <?php
-                                $sql = mysqli_query($conn, "select nama from dokter");
+                                $sql = mysqli_query($conn, "select nama from dokter order by nama");
                                 while ($data = mysqli_fetch_array($sql)) {
-                                    echo "<option value=$data[nama]>$data[nama]</option>";
+                                    echo "<option value='".$data['nama']."'>$data[nama]</option>";
                                 }
                                 
                                 ?>

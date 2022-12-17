@@ -4,7 +4,7 @@ TO-DO LIST :
 2. Tambah Penjadwalan : ukuran font, Nama drop down (DONE) Silahkan dicek
 - Dual Permission, 1 user cuma lihat data (cant Create,Update,Delete), 1 admin bisa semua (CRUD)
 - Edit ukuran tombol search (DONE) Perlu ubah background kayakke
-- KABEH DI KEI SESSION (ON PROGRESS)
+- KABEH DI KEI SESSION (DONE) Silahkan dicek
 - Bootstrap di list menu navbar (DONE) Bootstrap ning datatables, navbar e gak usah wes apik
 - Edit library di halaman lainnya (ON PROGRESS) selain data.php belum di edit
 
@@ -12,5 +12,5 @@ TO-DO LIST :
 
 Tambahan;
 - Tabel Transaksi
-- table jadwal dokter utntuk guest
+- table jadwal dokter untuk guest
 - table jadwal berobat untuk admin ???

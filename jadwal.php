@@ -45,12 +45,12 @@ if (isset($_SESSION['username'])) {
                 <?php
                 $sql = mysqli_query($conn, "select penjadwalan.*, dokter.nama
                 FROM dokter
-                LEFT JOIN penjadwalan ON penjadwalan.id_dokter=dokter.id_dokter");
+                LEFT JOIN penjadwalan ON penjadwalan.id_dokter=dokter.id_dokter
+                order by nama, hari desc");
 
                 echo "<table id='table2' width='100%' class='table table-bordered table-striped'>
                     <thead>
                     <tr>
-                    <th rowspan='2'>Nomor</th>
                     <th rowspan='2'>Nama Dokter</th>
                     <th rowspan='2'>Hari Praktik</th>
                     <th colspan='2'>Jam Praktik</th>
@@ -65,7 +65,6 @@ if (isset($_SESSION['username'])) {
                     ";
                 while ($data = mysqli_fetch_array($sql)) {
                     echo "<tr>
-                        <td>$data[id_jadwal]</td>
                         <td>$data[nama]</td>
                         <td>$data[hari]</td>
                         <td>$data[waktu_mulai]</td>
