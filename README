@@ -1,0 +1,19 @@
+TO-DO LIST :
+
+- Edit tampilan =
+
+1. Tambah Data : ukuran font, ukuran text area, drop down poliklinik, ukuran button tambah (DONE) Silahkan dicek ✓
+2. Tambah Penjadwalan : ukuran font, Nama drop down (DONE) Silahkan dicek ✓
+
+- Dual Permission, 1 user cuma lihat data (cant Create,Update,Delete), 1 admin bisa semua (CRUD) (DONE) ✓
+- Edit ukuran tombol search (DONE) Perlu ubah background kayakke
+- KABEH DI KEI SESSION (DONE) Silahkan dicek ✓✓
+- Bootstrap di list menu navbar (DONE) Bootstrap ning datatables, navbar e gak usah wes apik ✓✓
+- Edit library di halaman lainnya (ON PROGRESS) selain data.php belum di edit ?? maksude piye??
+- Nek guest meh bobol mlebu link e admin, kabeh redirect neng website login.php ✓
+- edit nek login e salah, muncul warning (ogak mung mballik neng menu login) ✓
+
+Tambahan;
+
+- Tabel Transaksi <=> Tabel Booking
+- tabel Pasien nek candak
