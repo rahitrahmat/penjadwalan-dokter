@@ -9,11 +9,11 @@ TO-DO LIST :
 - Edit ukuran tombol search (DONE) Perlu ubah background kayakke
 - KABEH DI KEI SESSION (DONE) Silahkan dicek ✓✓
 - Bootstrap di list menu navbar (DONE) Bootstrap ning datatables, navbar e gak usah wes apik ✓✓
-- Edit library di halaman lainnya (ON PROGRESS) selain data.php belum di edit ?? maksude piye??
+- Edit library di halaman lainnya (DONE)
 - Nek guest meh bobol mlebu link e admin, kabeh redirect neng website login.php ✓
 - edit nek login e salah, muncul warning (ogak mung mballik neng menu login) ✓
 
 Tambahan;
 
-- Tabel Transaksi <=> Tabel Booking
+- Tabel Transaksi <=> Tabel Booking (ON PROGRESS)
 - tabel Pasien nek candak
