@@ -58,7 +58,7 @@ include "config.php";
             <?php
             $sql = mysqli_query($conn, "select * from dokter");
 
-            echo "<table id='table1' class='display' width='100%'>
+            echo "<table id='table1' class='table table-dark table-striped table-hover' width='100%'>
                         <thead>
                         <tr>
                             <th>Nama</th>
@@ -72,19 +72,13 @@ include "config.php";
                             <td>$data[nama]</td>
                             <td>$data[jenis_kelamin]</td>
                             <td>$data[poliklinik] </td>
-                            </tr>";
+                        </tr>";
             }
             echo "</tbody>"
             ?>
         </div>
         <br>
         <script>
-            // var table = $('#example').DataTable();
-
-            // // #myInput is a <input type="text"> element
-            // $('#myInput').on( 'keyup', function () {
-            //     table.search( this.value ).draw();
-            // } );
             // Initialize the DataTable
             $(document).ready(function() {
                 $('#table1').DataTable({
