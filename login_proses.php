@@ -4,7 +4,7 @@
 session_start();
 
 $username = $_POST['username'];
-$password = $_POST['password'];
+$password = md5($_POST['password']);
 include "config.php";
 
 

@@ -26,6 +26,8 @@ if (isset($_GET['Message'])) {
 			<input type="password" name="password" placeholder="Password"><br>
 
 			<button type="submit">Login</button>
+			<br>
+			<a href="index.php" class="previous">&laquo; Kembali</a>
 		</form>
 	</div>
 </body>

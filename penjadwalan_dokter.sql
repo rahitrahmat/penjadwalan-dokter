@@ -39,11 +39,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`username`, `password`) VALUES
-('Rahmat', 'rahmat'),
-('Mitha', 'mitha'),
-('Aisyah', 'aisyah'),
-('Faishal', 'faishal'),
-('Hakim', 'hakim');
+('Rahmat', 'af2a4c9d4c4956ec9d6ba62213eed568'),
+('Faishal', '610411b3fa6d392b21728417512487b0');
 
 -- --------------------------------------------------------
 

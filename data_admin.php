@@ -40,7 +40,7 @@ if (isset($_SESSION['username'])) {
             <div id="header">
                 <div id="logo">
                     <h1>Sistem Penjadwalan Dokter RS Roemani</h1>
-                    <span>Rekayasa Perangkat Lunak</span>
+                    <span>Pemrograman Website</span>
                 </div>
                 <div id="menu">
                     <ul>
@@ -57,7 +57,7 @@ if (isset($_SESSION['username'])) {
                 <br>
                 <h2>Selamat Datang!</h2>
                 <p>
-                <h1>Hello, <?php echo $_SESSION['username']; ?></h1>
+                <h2>Hello, <?php echo $_SESSION['username']; ?></h2>
 
                 <?php
                 $sql = mysqli_query($conn, "select * from dokter");

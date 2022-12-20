@@ -333,9 +333,26 @@ ul h4 {
     padding: 5px 0;
     border: none;
     background-color:#2979ff;
-    font-size: 18px;
+    font-size: 28px;
     color: #fafafa;
 }
+
+.container form a {
+	text-decoration: none;
+	display: inline-block;
+	padding: 8px 16px;
+	margin-top: 50px;
+  }
+  
+ .container form a:hover {
+	background-color: #82a5e0;
+	color: rgb(255, 255, 255);
+  }
+  
+ .container form .previous{
+	background-color: #4a81e0;
+	color: rgb(255, 255, 255);
+  }
 
 .dataTables_length, div#table1_length.dataTables_length select, div#table2_length.dataTables_length select{
     color: #ffffff !important;

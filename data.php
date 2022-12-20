@@ -37,7 +37,7 @@ include "config.php";
         <div id="header">
             <div id="logo">
                 <h1>Sistem Penjadwalan Dokter RS Roemani</h1>
-                <span>Rekayasa Perangkat Lunak</span>
+                <span>Pemrograman Website</span>
             </div>
             <div id="menu">
                 <ul>
@@ -53,7 +53,7 @@ include "config.php";
             <br>
             <h2>Selamat Datang!</h2>
             <p>
-            <h1>Halo tamu!</h1>
+            <h2>Halo tamu!</h2>
 
             <?php
             $sql = mysqli_query($conn, "select * from dokter");

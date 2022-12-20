@@ -23,7 +23,7 @@ if (isset($_SESSION['username'])) {
             <div id="header">
                 <div id="logo">
                     <h1>Sistem Penjadwalan Dokter RS Roemani</h1>
-                    <span>Rekayasa Perangkat Lunak</span>
+                    <span>Pemrograman Website</span>
                 </div>
                 <div id="menu">
                     <ul>
@@ -39,9 +39,9 @@ if (isset($_SESSION['username'])) {
             <div id="page">
                 <div id="content">
                     <div class="box">
-                        <h2>Selamat Datang! Anda masuk sebagai USER ADMIN</h2>
+                        <h2>Selamat Datang! Anda masuk sebagai ADMIN : <?php echo $_SESSION['username']; ?></h2>
                         <p>Ini adalah halaman utama dari sistem penjadwalan dokter berbasis website
-                            yang dibuat oleh kelompok Rahmat, Faisal, Hakim, Syamitha, Aisyah. Didalam sistem ini
+                            yang dibuat oleh kelompok Rahmat, dan Faisal. Didalam sistem ini
                             akan memunculkan data-data tentang informasi umum para dokter yang ada di Rumah Sakit
                             Roemani, dan data jadwal praktek kerja dokter yang ada. Dengan adanya website ini kami
                             harap akan memberi kemudahan bagi pasien agar dapat melihat jadwal praktik dokter yang ada
