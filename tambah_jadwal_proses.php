@@ -17,12 +17,12 @@ if (isset($_SESSION['username'])) {
         // buat query
         $sql = mysqli_query($conn, "select * from dokter");
         while ($data = mysqli_fetch_array($sql)) {
-            if($data['nama'] == $nama){
+            if ($data['nama'] == $nama) {
                 $id_dokter = $data['id_dokter'];
             }
         }
 
-        if($id_dokter){
+        if ($id_dokter) {
             $query = mysqli_query($conn, "INSERT INTO penjadwalan VALUES('','$id_dokter','$hari','$waktu_mulai','$waktu_akhir')");
         } else {
             echo "<script>alert('Nama yang dimasukkan tidak ada dalam daftar!')</script>";
@@ -35,16 +35,15 @@ if (isset($_SESSION['username'])) {
         if ($query) {
             // kalau berhasil alihkan ke halaman list_masuk.php dengan status=sukses
             echo "<script>alert('Data Berhasil DITAMBAHKAN!')</script>";
-            echo "<script>window.open('jadwal.php','_self')</script>";
+            echo "<script>window.open('jadwal_admin.php','_self')</script>";
         } else {
             // kalau gagal alihkan ke halaman list_masuk.php dengan status=gagal
             echo "<script>alert('Data GAGAL DITAMBAHKAN!')</script>";
-            echo "<script>window.open('jadwal.php','_self')</script>";
+            echo "<script>window.open('jadwal_admin.php','_self')</script>";
         }
     } else {
         die("Akses dilarang...");
     }
-    
 } else {
 
     header("Location: login.php");

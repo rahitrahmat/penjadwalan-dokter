@@ -17,7 +17,7 @@ if (isset($_SESSION['username'])) {
 
         // Arahkan ulang ke beranda untuk menampilkan pengguna yang diperbarui dalam daftar
         echo "<script>alert('Data Berhasil DIUPDATE!')</script>";
-        echo "<script>window.open('jadwal.php','_self')</script>";
+        echo "<script>window.open('jadwal_admin.php','_self')</script>";
     }
 
 ?>
@@ -58,9 +58,9 @@ if (isset($_SESSION['username'])) {
                     </div>
                     <div id="menu">
                         <ul>
-                            <li><a href="home.php">Halaman Utama</a></li>
-                            <li><a href="data.php">Data Dokter</a></li>
-                            <li><a href="jadwal.php">Jadwal Dokter</a></li>
+                            <li><a href="home_admin.php">Halaman Utama</a></li>
+                            <li><a href="data_admin.php">Data Dokter</a></li>
+                            <li><a href="jadwal_admin.php">Jadwal Dokter</a></li>
                             <li><a href="tambah.php">Tambah Data</a></li>
                             <li><a href="logout.php">Logout</a></li>
                         </ul>

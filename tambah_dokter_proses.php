@@ -21,16 +21,15 @@ if (isset($_SESSION['username'])) {
         if ($query) {
             // kalau berhasil alihkan ke halaman list_masuk.php dengan status=sukses
             echo "<script>alert('Data Berhasil DITAMBAHKAN!')</script>";
-            echo "<script>window.open('data.php','_self')</script>";
+            echo "<script>window.open('data_admin.php','_self')</script>";
         } else {
             // kalau gagal alihkan ke halaman list_masuk.php dengan status=gagal
             echo "<script>alert('Data GAGAL DITAMBAHKAN!')</script>";
-            echo "<script>window.open('data.php','_self')</script>";
+            echo "<script>window.open('data_admin.php','_self')</script>";
         }
     } else {
         die("Akses dilarang...");
     }
-
 } else {
 
     header("Location: login.php");

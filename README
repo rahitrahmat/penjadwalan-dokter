@@ -16,4 +16,14 @@ TO-DO LIST :
 Tambahan;
 
 - Tabel Transaksi <=> Tabel Booking (ON PROGRESS)
-- tabel Pasien nek candak
+- tabel pasien : (jek penggambaran tok)
+  (-)id_pasien (PK)
+  (-)nama
+  (-)jenis_kelamin
+  (-)alamat
+
+- tabel perjanjian(transaksi/booking) (jek penggambaran) :
+  (-)id_janji (PK)
+  (-)id_pasien (FK <==> tabel pasien)
+  (-)id_jadwal (FK <==> tabel penjadwalan)
+  (-)nomor antrian

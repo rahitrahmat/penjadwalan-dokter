@@ -15,14 +15,13 @@ if (isset($_SESSION['username'])) {
         if ($query) {
             // jika berhasil tampilkan pesan berhasil delete data 
             echo "<script>alert('Data Berhasil Dihapus!')</script>";
-            echo "<script>window.open('jadwal.php','_self')</script>";
+            echo "<script>window.open('jadwal_admin.php','_self')</script>";
         } else {
             // jika gagal tampilkan pesan kesalahan
             echo "<script>alert('Data GAGAL Dihapus!')</script>";
-            echo "<script>window.open('jadwal.php','_self')</script>";
+            echo "<script>window.open('jadwal_admin.php','_self')</script>";
         }
     }
-
 } else {
 
     header("Location: login.php");
