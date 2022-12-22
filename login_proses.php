@@ -7,97 +7,53 @@ $username = $_POST['username'];
 $password = md5($_POST['password']);
 include "config.php";
 
+//---CODING ASLI BAWAAN MULAI DARI BAWAH---
+//$query = "SELECT * FROM admin WHERE username='$username' and password='$password'";
+//$result = mysqli_query($conn, $query);
+//if ($data = mysqli_fetch_array($result)) {
+//    $_SESSION['username'] = $_POST['username'];
+//    header('Location: home_admin.php');
+//} else if ($username == "" or $password = "") {
+//    $_SESSION['kosong'] = 'kosong';
+//    header('Location: login.php?Message=' . urlencode($Message));
+//} else {
+//    $_SESSION['salah'] = 'salah';
+//    header('Location: login.php?Message=' . urlencode($Message));
+//}
+//---BATAS AKHIR CODING BAWAAN---
 
-$query = "SELECT * FROM admin WHERE username='$username' and password='$password'";
-$result = mysqli_query($conn, $query);
-if ($data = mysqli_fetch_array($result)) {
-    $_SESSION['username'] = $_POST['username'];
-    header('Location: home_admin.php');
-} else if ($username == "" or $password = "") {
-    $_SESSION['kosong'] = 'kosong';
-    header('Location: login.php?Message=' . urlencode($Message));
+
+// menyeleksi data user dengan username dan password yang sesuai
+$login = mysqli_query($conn, "select * from admin where username='$username' and password='$password'");
+// menghitung jumlah data yang ditemukan
+$cek = mysqli_num_rows($login);
+
+// cek apakah username dan password di temukan pada database
+if ($cek > 0) {
+
+    $data = mysqli_fetch_assoc($login);
+
+    // cek jika user login sebagai admin
+    if ($data['level'] == "admin") {
+
+        // buat session login dan username
+        $_SESSION['username'] = $username;
+        $_SESSION['level'] = "admin";
+        // alihkan ke halaman dashboard admin
+        header("location:home_admin.php");
+
+        // cek jika user login sebagai pasien
+    } else if ($data['level'] == "pasien") {
+        // buat session login dan username
+        $_SESSION['username'] = $username;
+        $_SESSION['level'] = "pasien";
+        // alihkan ke halaman dashboard pegawai
+        header("location:home_pasien.php");
+    } else {
+
+        // alihkan ke halaman login kembali
+        header('Location: login.php?Message=' . urlencode($Message));
+    }
 } else {
-    $_SESSION['salah'] = 'salah';
     header('Location: login.php?Message=' . urlencode($Message));
 }
-?>
-<?php 
-
-// session_start(); 
-// include "config.php";
-
-// if (isset($_POST['username']) && isset($_POST['password'])) {
-
-//     function validate($data){
-
-//        $data = trim($data);
-
-//        $data = stripslashes($data);
-
-//        $data = htmlspecialchars($data);
-
-//        return $data;
-
-//     }
-
-//     $username = validate($_POST['username']);
-
-//     $pasword = validate($_POST['password']);
-
-//     if (empty($username)) {
-
-//         header("Location: index.php?error=User Name is required");
-
-//         exit();
-
-//     }else if(empty($password)){
-
-//         header("Location: index.php?error=Password is required");
-
-//         exit();
-
-//     }else{
-
-//         $sql = "SELECT * FROM admin WHERE username='$username' AND password='$password'";
-
-//         $result = mysqli_query($conn, $sql);
-
-//         if (mysqli_num_rows($result) === 1) {
-
-//             $row = mysqli_fetch_assoc($result);
-
-//             if ($row['username'] === $username && $row['password'] === $password) {
-
-//                 echo "Logged in!";
-
-//                 $_SESSION['username'] = $row['username'];
-
-//                 header("Location: home.php");
-
-//                 exit();
-
-//             }else{
-
-//                 header("Location: index.php?error=Incorect User name or password");
-
-//                 exit();
-
-//             }
-
-//         }else{
-
-//             header("Location: index.php?error=Incorect User name or password");
-
-//             exit();
-
-//         }
-
-//     }
-
-// }else{
-
-//     header("Location: index.php");
-
-//     exit();
-
-// }

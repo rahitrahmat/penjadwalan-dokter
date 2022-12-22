@@ -6,7 +6,7 @@ TO-DO LIST :
 2. Tambah Penjadwalan : ukuran font, Nama drop down (DONE) Silahkan dicek ✓✓
 
 - Dual Permission, 1 user cuma lihat data (cant Create,Update,Delete), 1 admin bisa semua (CRUD) (DONE) ✓✓
-- Edit ukuran tombol search (DONE) Perlu ubah background kayakke
+- Edit ukuran tombol search (DONE) Perlu ubah background kayakke✓✓
 - KABEH DI KEI SESSION (DONE) Silahkan dicek ✓✓
 - Bootstrap di list menu navbar (DONE) Bootstrap ning datatables, navbar e gak usah wes apik ✓✓
 - Edit library di halaman lainnya (DONE)✓✓
@@ -14,16 +14,9 @@ TO-DO LIST :
 - edit nek login e salah, muncul warning (ogak mung mballik neng menu login) ✓
 
 Tambahan;
-
-- Tabel Transaksi <=> Tabel Booking (ON PROGRESS)
-- tabel pasien : (jek penggambaran tok)
-  (-)id_pasien (PK)
-  (-)nama
-  (-)jenis_kelamin
-  (-)alamat
-
-- tabel perjanjian(transaksi/booking) (jek penggambaran) :
-  (-)id_janji (PK)
-  (-)id_pasien (FK <==> tabel pasien)
-  (-)id_jadwal (FK <==> tabel penjadwalan)
-  (-)nomor antrian
+- tabel pasien (DONE)✓
+- tabel perjanjian(transaksi/booking) (DONE)✓
+- triple session (guest,pasien, admin) (DONE)✓
+- KABEH halaman khusus pasien durung digawe (rodo gampang) (ON PROGRESS)
+- Halaman Buat janji pas login pasien (susah, MUMET TOTAL)
+- Halaman nampilke janji sing digawe mbe pasien (modyar lali kabeh coding sql e kyk left join WKWKW, MUMET TOTAL)

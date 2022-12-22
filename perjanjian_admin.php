@@ -60,32 +60,25 @@ if ($_SESSION['level'] == "") {
             <p>
             <h2>Hello, <?php echo $_SESSION['username']; ?></h2>
             <?php
-            $sql = mysqli_query($conn, "select penjadwalan.*, dokter.nama
-                FROM dokter
-                LEFT JOIN penjadwalan ON penjadwalan.id_dokter=dokter.id_dokter
-                order by nama, hari desc");
+            $sql = mysqli_query($conn, "select perjanjian.*, penjadwalan.id_jadwal
+                FROM penjadwalan
+                LEFT JOIN perjanjian ON perjanjian.id_jadwal=penjadwalan.id_jadwal
+                order by id_jadwal, hari desc");
 
             echo "<table id='table2' class='table table-bordered table-dark table-striped table-hover' width='100%'>
                     <thead class='text-center'>
                     <tr>
-                    <th rowspan='2'>Nama Dokter</th>
-                    <th rowspan='2'>Hari Praktik</th>
-                    <th colspan='2'>Jam Praktik</th>
+                    <th rowspan='2'>ID jadwal</th>
+                    <th rowspan='2'>ID pasien</th>
                     <th rowspan='2'>Tindakan</th>
-                    </tr>
-                    <tr>
-                    <th>Mulai Praktik</th>
-                    <th>Selesai Praktik</th>
                     </tr>
                     </thead>
                     <tbody>
                     ";
             while ($data = mysqli_fetch_array($sql)) {
                 echo "<tr>
-                        <td>$data[nama]</td>
-                        <td>$data[hari]</td>
-                        <td>$data[waktu_mulai]</td>
-                        <td>$data[waktu_akhir]</td>
+                        <td>$data[id_jadwal]</td>
+                        <td>$data[id_pasien]</td>
                         <td>
                             <a href='jadwal_edit.php?id_jadwal=$data[id_jadwal]'>Edit</a> |
                             <a href='jadwal_hapus.php?hapus=$data[id_jadwal]'>Hapus</a> |

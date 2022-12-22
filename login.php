@@ -2,6 +2,12 @@
 include 'config.php';
 if (isset($_GET['Message'])) {
 	print '<script type="text/javascript">alert("Username atau Password yang dimasukkan salah! silahkan cek kembali");</script>';
+} else if (isset($_GET['Warning'])) {
+	print '<script type="text/javascript">alert("Maaf anda tidak boleh curang! silahkan login dulu boss");</script>';
+} else if (isset($_GET['Pasien'])) {
+	print '<script type="text/javascript">alert("Maaf anda PASIEN, bukan ADMIN! Akses ditolak");</script>';
+} else if (isset($_GET['Admin'])) {
+	print '<script type="text/javascript">alert("Maaf anda Admin, bukan PASIEN! Silahkan akses sebagai Pasien");</script>';
 }
 ?>
 <!DOCTYPE HTML>

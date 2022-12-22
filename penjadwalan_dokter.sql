@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Jun 2022 pada 02.48
--- Versi server: 10.4.17-MariaDB
--- Versi PHP: 8.0.1
+-- Generation Time: Dec 22, 2022 at 04:18 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,37 +26,43 @@ USE `penjadwalan_dokter`;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
   `username` varchar(10) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `level` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`username`, `password`) VALUES
-('Rahmat', 'af2a4c9d4c4956ec9d6ba62213eed568'),
-('Faishal', '610411b3fa6d392b21728417512487b0');
+INSERT INTO `admin` (`id`, `nama`, `username`, `password`, `level`) VALUES
+(1, 'Rahmat Hidayatullah', 'Rahmat', 'af2a4c9d4c4956ec9d6ba62213eed568', 'admin'),
+(2, 'Faishal Rachman Hakim', 'Faishal', '610411b3fa6d392b21728417512487b0', 'admin'),
+(3, 'Aris Setiawan', 'Aris', '288077f055be4fadc3804a69422dd4f8', 'pasien'),
+(4, 'Agus Boy', 'Agus', 'fdf169558242ee051cca1479770ebac3', 'pasien'),
+(5, 'Test Pasien', 'Pasien', 'f5c25a0082eb0748faedca1ecdcfb131', 'pasien');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `dokter`
+-- Table structure for table `dokter`
 --
 
 CREATE TABLE `dokter` (
-  `id_dokter` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id_dokter` int(10) NOT NULL,
   `nama` varchar(40) NOT NULL,
   `jenis_kelamin` varchar(10) NOT NULL,
   `poliklinik` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `dokter`
+-- Dumping data for table `dokter`
 --
 
 INSERT INTO `dokter` (`id_dokter`, `nama`, `jenis_kelamin`, `poliklinik`) VALUES
@@ -84,11 +90,37 @@ INSERT INTO `dokter` (`id_dokter`, `nama`, `jenis_kelamin`, `poliklinik`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penjadwalan`
+-- Table structure for table `pasien`
+--
+
+CREATE TABLE `pasien` (
+  `id_pasien` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `jenis_kelamin` varchar(1) NOT NULL,
+  `alamat` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pasien`
+--
+
+INSERT INTO `pasien` (`id_pasien`, `nama`, `jenis_kelamin`, `alamat`) VALUES
+(1, 'Rahmat H', 'L', 'Jl. Madukoro 3 no 233 RT 4 RW 1 Krobokan, Semarang Barat, Kota Semarang'),
+(2, 'Raita Kazuto', 'P', 'Jl. Ngaglik Lama 72 B RT 1 RW 5 Bendungan, Gajahmungkur, Kota Semarang'),
+(3, 'Aris Setiawan', 'L', 'Jl. Kemantren RT 002/04, Semarang, Jawa Tengah'),
+(4, 'Agus Boy', 'L', 'Jl. Hos Cokroaminoto No.10-11, Cileduk, Tangerang'),
+(5, 'Faishal R H', 'L', 'Jl. Gajahmada 137, Bali, Denpasar'),
+(6, 'Rachman H F', 'L', 'Jl. Melawai IX 48, DKI Jakarta, Jakarta'),
+(7, 'Hakim F R', 'L', 'Jl. K 2 A Teluk Gong, DKI Jakarta, Jakarta');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `penjadwalan`
 --
 
 CREATE TABLE `penjadwalan` (
-  `id_jadwal` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id_jadwal` int(10) NOT NULL,
   `id_dokter` int(10) NOT NULL,
   `hari` varchar(6) NOT NULL,
   `waktu_mulai` time NOT NULL,
@@ -96,7 +128,7 @@ CREATE TABLE `penjadwalan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `penjadwalan`
+-- Dumping data for table `penjadwalan`
 --
 
 INSERT INTO `penjadwalan` (`id_jadwal`, `id_dokter`, `hari`, `waktu_mulai`, `waktu_akhir`) VALUES
@@ -159,35 +191,120 @@ INSERT INTO `penjadwalan` (`id_jadwal`, `id_dokter`, `hari`, `waktu_mulai`, `wak
 (57, 19, 'KAMIS', '12:00:00', '15:00:00'),
 (58, 20, 'KAMIS', '16:00:00', '17:00:00'),
 (59, 20, 'JUMAT', '16:00:00', '18:00:00'),
-(60, 20, 'SABTU', '08:00:00', '11:00:00');
+(60, 20, 'SABTU', '08:00:00', '11:30:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `perjanjian`
+--
+
+CREATE TABLE `perjanjian` (
+  `id_janji` int(11) NOT NULL,
+  `id_pasien` int(11) NOT NULL,
+  `id_jadwal` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `perjanjian`
+--
+
+INSERT INTO `perjanjian` (`id_janji`, `id_pasien`, `id_jadwal`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 2, 7),
+(5, 2, 8),
+(6, 2, 9),
+(7, 3, 19),
+(8, 3, 20),
+(9, 3, 21),
+(10, 4, 22),
+(11, 4, 23),
+(12, 4, 24),
+(13, 5, 27),
+(14, 5, 28),
+(15, 5, 29),
+(16, 6, 33),
+(17, 6, 34),
+(18, 7, 57);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `dokter`
+-- Indexes for table `admin`
 --
--- ALTER TABLE `dokter`
-  -- ADD PRIMARY KEY (`id_dokter`);
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `penjadwalan`
+-- Indexes for table `dokter`
 --
--- ALTER TABLE `penjadwalan`
---   ADD PRIMARY KEY (`id_jadwal`),
---   ADD KEY `idx_jadwal` (`id_dokter`);
+ALTER TABLE `dokter`
+  ADD PRIMARY KEY (`id_dokter`);
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Indexes for table `pasien`
+--
+ALTER TABLE `pasien`
+  ADD PRIMARY KEY (`id_pasien`);
+
+--
+-- Indexes for table `penjadwalan`
+--
+ALTER TABLE `penjadwalan`
+  ADD PRIMARY KEY (`id_jadwal`),
+  ADD KEY `idx_jadwal` (`id_dokter`);
+
+--
+-- Indexes for table `perjanjian`
+--
+ALTER TABLE `perjanjian`
+  ADD PRIMARY KEY (`id_janji`),
+  ADD KEY `idx_pasien` (`id_pasien`),
+  ADD KEY `index_jadwal` (`id_jadwal`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `penjadwalan`
+-- AUTO_INCREMENT for table `admin`
 --
--- ALTER TABLE `penjadwalan`
---   ADD CONSTRAINT `idx_jadwal` FOREIGN KEY (`id_dokter`) REFERENCES `dokter` (`id_dokter`);
--- COMMIT;
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `pasien`
+--
+ALTER TABLE `pasien`
+  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `perjanjian`
+--
+ALTER TABLE `perjanjian`
+  MODIFY `id_janji` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `penjadwalan`
+--
+ALTER TABLE `penjadwalan`
+  ADD CONSTRAINT `idx_jadwal` FOREIGN KEY (`id_dokter`) REFERENCES `dokter` (`id_dokter`) ON DELETE NO ACTION;
+
+--
+-- Constraints for table `perjanjian`
+--
+ALTER TABLE `perjanjian`
+  ADD CONSTRAINT `idx_pasien` FOREIGN KEY (`id_pasien`) REFERENCES `pasien` (`id_pasien`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `index_jadwal` FOREIGN KEY (`id_jadwal`) REFERENCES `penjadwalan` (`id_jadwal`) ON DELETE NO ACTION;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
