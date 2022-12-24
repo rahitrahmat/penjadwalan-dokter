@@ -60,29 +60,38 @@ if ($_SESSION['level'] == "") {
             <p>
             <h2>Hello, <?php echo $_SESSION['username']; ?></h2>
             <?php
-            $sql = mysqli_query($conn, "select perjanjian.*, penjadwalan.id_jadwal
-                FROM penjadwalan
-                LEFT JOIN perjanjian ON perjanjian.id_jadwal=penjadwalan.id_jadwal
-                order by id_jadwal, hari desc");
+            $sql = mysqli_query($conn, "select pasien.nama as nama_pasien, dokter.nama as nama_dokter, penjadwalan.hari, penjadwalan.waktu_mulai, penjadwalan.waktu_akhir, perjanjian.id_janji FROM dokter 
+            inner JOIN penjadwalan on dokter.id_dokter=penjadwalan.id_dokter
+            inner join perjanjian on penjadwalan.id_jadwal=perjanjian.id_jadwal
+            INNER join pasien on perjanjian.id_pasien=pasien.id_pasien
+            order by pasien.nama;");
 
             echo "<table id='table2' class='table table-bordered table-dark table-striped table-hover' width='100%'>
                     <thead class='text-center'>
                     <tr>
-                    <th rowspan='2'>ID jadwal</th>
-                    <th rowspan='2'>ID pasien</th>
+                    <th rowspan='2'>Nama Pasien</th>
+                    <th rowspan='2'>Nama Dokter</th>
+                    <th rowspan='2'>Hari</th>
+                    <th colspan='2'>Jam Praktik</th>
                     <th rowspan='2'>Tindakan</th>
+                    </tr>
+                    <tr>
+                        <th>Mulai Praktik</th>
+                        <th>Selesai Praktik</th>
                     </tr>
                     </thead>
                     <tbody>
                     ";
             while ($data = mysqli_fetch_array($sql)) {
                 echo "<tr>
-                        <td>$data[id_jadwal]</td>
-                        <td>$data[id_pasien]</td>
+                        <td>$data[nama_pasien]</td>
+                        <td>$data[nama_dokter]</td>
+                        <td>$data[hari]</td>
+                        <td>$data[waktu_mulai]</td>
+                        <td>$data[waktu_akhir]</td>
                         <td>
-                            <a href='jadwal_edit.php?id_jadwal=$data[id_jadwal]'>Edit</a> |
-                            <a href='jadwal_hapus.php?hapus=$data[id_jadwal]'>Hapus</a> |
-                            </td>
+                            <a href='perjanjian_hapus.php?hapus=$data[id_janji]'>Hapus</a>
+                        </td>
                         </tr>";
             }
             echo "</tbody>"
