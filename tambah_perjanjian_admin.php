@@ -42,16 +42,16 @@ if ($_SESSION['level'] == "") {
             </div>
         </div>
         <div id="page">
-            <h2> Silahkan isi form berikut untuk menambahkan data jadwal </h2>
-            <form method="post" action="tambah_jadwal_proses.php">
+            <h2> Silahkan isi form berikut untuk membuat janji dengan dokter </h2>
+            <form method="post" action="tambah_perjanjian_proses.php">
                 <table width='100%' class='table table-bordered table-striped'>
 
                     <tr>
-                        <td><label for="nama">Nama :</label></td>
+                        <td><label for="nama">Nama Pasien:</label></td>
                         <td>
                             <select id="nama" name="nama">
                                 <?php
-                                $sql = mysqli_query($conn, "select nama from dokter order by nama");
+                                $sql = mysqli_query($conn, "select nama from pasien order by nama");
                                 while ($data = mysqli_fetch_array($sql)) {
                                     echo "<option value='" . $data['nama'] . "'>$data[nama]</option>";
                                 }
@@ -61,26 +61,59 @@ if ($_SESSION['level'] == "") {
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="hari">Hari :</label></td>
+                        <td><label for="nama_dokter">Nama Dokter:</label></td>
                         <td>
-                            <select id="hari" name="hari">
-                                <option value="SENIN">Senin</option>
-                                <option value="SELASA">Selasa</option>
-                                <option value="RABU">Rabu</option>
-                                <option value="KAMIS">Kamis</option>
-                                <option value="JUMAT">Jum'at</option>
-                                <option value="SABTU">Sabtu</option>
-                                <option value="MINGGU">Minggu</option>
+                            <select id="nama_dokter" name="nama_dokter">
+                                <?php
+                                $sql = mysqli_query($conn, "select nama from dokter order by nama");
+                                while ($data = mysqli_fetch_array($sql)) {
+                                    echo "<option value='" . $data['nama'] . "'>$data[nama]</option>";
+                                }
+                                ?>
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="waktu_mulai">Waktu Mulai :</label></td>
-                        <td><input type="time" id="waktu_mulai" name="waktu_mulai"></td>
+                        <td><label for="hari">Hari:</label></td>
+                        <td>
+                            <select id="hari" name="hari">
+                                <?php
+                                $sql = mysqli_query($conn, "select hari from penjadwalan");
+                                while ($data = mysqli_fetch_array($sql)) {
+                                    echo "<option value='" . $data['hari'] . "'>$data[hari]</option>";
+                                }
+
+                                ?>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
-                        <td><label for="waktu_akhir">Waktu Akhir :</label></td>
-                        <td><input type="time" id="waktu_akhir" name="waktu_akhir"></td>
+                        <td><label for="hari">Hari:</label></td>
+                        <td>
+                            <select id="hari" name="hari">
+                                <?php
+                                $sql = mysqli_query($conn, "select hari from penjadwalan");
+                                while ($data = mysqli_fetch_array($sql)) {
+                                    echo "<option value='" . $data['hari'] . "'>$data[hari]</option>";
+                                }
+
+                                ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="waktu_mulai">Waktu mulai:</label></td>
+                        <td>
+                            <select id="waktu_mulai" name="waktu_mulai">
+                                <?php
+                                $sql = mysqli_query($conn, "select waktu_mulai from penjadwalan");
+                                while ($data = mysqli_fetch_array($sql)) {
+                                    echo "<option value='" . $data['waktu_mulai'] . "'>$data[waktu_mulai]</option>";
+                                }
+
+                                ?>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="2">

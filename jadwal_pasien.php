@@ -4,8 +4,8 @@ session_start();
 include "config.php";
 if ($_SESSION['level'] == "") {
     header('Location: login.php?Warning=' . urlencode($Warning));
-} else if ($_SESSION['level'] == "pasien") {
-    header('Location: login.php?Pasien=' . urlencode($Pasien));
+} else if ($_SESSION['level'] == "admin") {
+    header('Location: login.php?Admin=' . urlencode($Admin));
 }
 ?>
 
@@ -46,11 +46,10 @@ if ($_SESSION['level'] == "") {
             </div>
             <div id="menu">
                 <ul>
-                    <li><a href="home_admin.php">Halaman Utama</a></li>
-                    <li><a href="data_admin.php">Data Dokter</a></li>
-                    <li><a href="jadwal_admin.php">Jadwal Dokter</a></li>
-                    <li><a href="perjanjian_admin.php">Perjanjian</a></li>
-                    <li><a href="tambah.php">Tambah Data</a></li>
+                    <li><a href="home_pasien.php">Halaman Utama</a></li>
+                    <li><a href="data_pasien.php">Data Dokter</a></li>
+                    <li><a href="jadwal_pasien.php">Jadwal Dokter</a></li>
+                    <li><a href="tambah_perjanjian_pasien.php">Perjanjian</a></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
                 <br class="clearfix" />
@@ -61,20 +60,17 @@ if ($_SESSION['level'] == "") {
             <p>
             <h2>Hello, <?php echo $_SESSION['username']; ?></h2>
             <?php
-            $sql = mysqli_query($conn, "select pasien.nama as nama_pasien, dokter.nama as nama_dokter, penjadwalan.hari, penjadwalan.waktu_mulai, penjadwalan.waktu_akhir, perjanjian.id_janji FROM dokter 
-            inner JOIN penjadwalan on dokter.id_dokter=penjadwalan.id_dokter
-            inner join perjanjian on penjadwalan.id_jadwal=perjanjian.id_jadwal
-            INNER join pasien on perjanjian.id_pasien=pasien.id_pasien
-            order by pasien.nama;");
+            $sql = mysqli_query($conn, "select penjadwalan.*, dokter.nama
+                FROM dokter
+                LEFT JOIN penjadwalan ON penjadwalan.id_dokter=dokter.id_dokter
+                order by nama, hari desc");
 
             echo "<table id='table2' class='table table-bordered table-dark table-striped table-hover' width='100%'>
                     <thead class='text-center'>
                     <tr>
-                    <th rowspan='2'>Nama Pasien</th>
-                    <th rowspan='2'>Nama Dokter</th>
-                    <th rowspan='2'>Hari</th>
-                    <th colspan='2'>Jam Praktik</th>
-                    <th rowspan='2'>Tindakan</th>
+                        <th rowspan='2'>Nama Dokter</th>
+                        <th rowspan='2'>Hari Praktik</th>
+                        <th colspan='2'>Jam Praktik</th>
                     </tr>
                     <tr>
                         <th>Mulai Praktik</th>
@@ -85,14 +81,10 @@ if ($_SESSION['level'] == "") {
                     ";
             while ($data = mysqli_fetch_array($sql)) {
                 echo "<tr>
-                        <td>$data[nama_pasien]</td>
-                        <td>$data[nama_dokter]</td>
+                        <td>$data[nama]</td>
                         <td>$data[hari]</td>
                         <td>$data[waktu_mulai]</td>
                         <td>$data[waktu_akhir]</td>
-                        <td>
-                            <a href='perjanjian_hapus.php?hapus=$data[id_janji]'>Hapus</a>
-                        </td>
                         </tr>";
             }
             echo "</tbody>"
@@ -113,3 +105,7 @@ if ($_SESSION['level'] == "") {
 </body>
 
 </html>
+
+<?php
+
+?>

@@ -162,7 +162,7 @@ ul h4 {
 	margin: 0 0 0 0;
 	height: 70px;
 	background: #bdb7bc url(gambar/bg2.png) top left repeat-x;
-	width: 1090px;
+	width: 1175px;
 	padding: 0 45px 0 45px;
 	line-height: 70px;
 	text-shadow: 1px 1px 0px #FFF;
@@ -198,7 +198,7 @@ ul h4 {
 }
 
 #page {
-	width: 1090px;
+	width: 1175px;
 	padding: 45px 45px 0 45px;
 	background: rgba(20,0,18,0.9);
 	margin: 0;

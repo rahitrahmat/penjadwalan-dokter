@@ -4,8 +4,8 @@ session_start();
 include "config.php";
 if ($_SESSION['level'] == "") {
     header('Location: login.php?Warning=' . urlencode($Warning));
-} else if ($_SESSION['level'] == "pasien") {
-    header('Location: login.php?Pasien=' . urlencode($Pasien));
+} else if ($_SESSION['level'] == "admin") {
+    header('Location: login.php?Admin=' . urlencode($Admin));
 }
 ?>
 
@@ -31,11 +31,10 @@ if ($_SESSION['level'] == "") {
             </div>
             <div id="menu">
                 <ul>
-                    <li><a href="home_admin.php">Halaman Utama</a></li>
-                    <li><a href="data_admin.php">Data Dokter</a></li>
-                    <li><a href="jadwal_admin.php">Jadwal Dokter</a></li>
-                    <li><a href="perjanjian_admin.php">Perjanjian</a></li>
-                    <li><a href="tambah.php">Tambah Data</a></li>
+                    <li><a href="home_pasien.php">Halaman Utama</a></li>
+                    <li><a href="data_pasien.php">Data Dokter</a></li>
+                    <li><a href="jadwal_pasien.php">Jadwal Dokter</a></li>
+                    <li><a href="tambah_perjanjian_pasien.php">Perjanjian</a></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
                 <br class="clearfix" />
@@ -44,9 +43,9 @@ if ($_SESSION['level'] == "") {
         <div id="page">
             <div id="content">
                 <div class="box">
-                    <h2>Selamat Datang! Anda masuk sebagai ADMIN : <?php echo $_SESSION['username']; ?></h2>
+                    <h2>Selamat Datang! Anda masuk sebagai PASIEN : <?php echo $_SESSION['username']; ?></h2>
                     <p>Ini adalah halaman utama dari sistem penjadwalan dokter berbasis website
-                        yang dibuat oleh kelompok Rahmat, dan Faisal. Didalam sistem ini
+                        yang dibuat oleh kelompok Rahmat dan Faisal. Didalam sistem ini
                         akan memunculkan data-data tentang informasi umum para dokter yang ada di Rumah Sakit
                         Roemani, dan data jadwal praktek kerja dokter yang ada. Dengan adanya website ini kami
                         harap akan memberi kemudahan bagi pasien agar dapat melihat jadwal praktik dokter yang ada
@@ -117,3 +116,6 @@ if ($_SESSION['level'] == "") {
 </body>
 
 </html>
+
+<?php
+?>

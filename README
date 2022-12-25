@@ -12,11 +12,15 @@ TO-DO LIST :
 - Edit library di halaman lainnya (DONE)✓✓
 - Nek guest meh bobol mlebu link e admin, kabeh redirect neng website login.php ✓
 - edit nek login e salah, muncul warning (ogak mung mballik neng menu login) ✓
+- edit css, navbar bila tambah 1 saat login admin (total 7) jadi acak (CEK DULU)
 
 Tambahan;
 - tabel pasien (DONE)✓
 - tabel perjanjian(transaksi/booking) (DONE)✓
 - triple session (guest,pasien, admin) (DONE)✓
-- KABEH halaman khusus pasien durung digawe (rodo gampang) (ON PROGRESS)
-- Halaman Buat janji pas login pasien (susah, MUMET TOTAL)
-- Halaman nampilke janji sing digawe mbe pasien (modyar lali kabeh coding sql e kyk left join WKWKW, MUMET TOTAL)
+- KABEH halaman khusus pasien durung digawe (DONE)✓
+- Halaman nampilke janji sing digawe mbe pasien (DONE)✓✓
+- Halaman Buat janji pas login pasien (durung, bingung auto fill & relasi antar tabel sql e)
+    sql tambah perjanjian_admin
+    IF dokter yg dipilih dengan jadwal yg dipilih sudah terisi, then gagal
+- navbar di data & jadwal iso diotak atik ga ya? logo ne dadi ilang neng 2 kui

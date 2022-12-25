@@ -34,6 +34,7 @@ if ($_SESSION['level'] == "") {
                     <li><a href="home_admin.php">Halaman Utama</a></li>
                     <li><a href="data_admin.php">Data Dokter</a></li>
                     <li><a href="jadwal_admin.php">Jadwal Dokter</a></li>
+                    <li><a href="perjanjian_admin.php">Perjanjian</a></li>
                     <li><a href="tambah.php">Tambah Data</a></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
@@ -49,6 +50,9 @@ if ($_SESSION['level'] == "") {
                 <br>
                 <br>
                 <h1> <a href="tambah_jadwal.php">TAMBAH DATA PENJADWALAN</a></h1>
+                <br>
+                <br>
+                <h1> <a href="tambah_perjanjian_admin.php">TAMBAH DATA PERJANJIAN</a></h1>
                 <br>
                 <br>
                 <br>
