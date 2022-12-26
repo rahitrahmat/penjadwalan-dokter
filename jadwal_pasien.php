@@ -49,7 +49,6 @@ if ($_SESSION['level'] == "") {
                     <li><a href="home_pasien.php">Halaman Utama</a></li>
                     <li><a href="data_pasien.php">Data Dokter</a></li>
                     <li><a href="jadwal_pasien.php">Jadwal Dokter</a></li>
-                    <li><a href="tambah_perjanjian_pasien.php">Perjanjian</a></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
                 <br class="clearfix" />
@@ -71,6 +70,7 @@ if ($_SESSION['level'] == "") {
                         <th rowspan='2'>Nama Dokter</th>
                         <th rowspan='2'>Hari Praktik</th>
                         <th colspan='2'>Jam Praktik</th>
+                        <th rowspan='2'>Tindakan</th>
                     </tr>
                     <tr>
                         <th>Mulai Praktik</th>
@@ -85,6 +85,7 @@ if ($_SESSION['level'] == "") {
                         <td>$data[hari]</td>
                         <td>$data[waktu_mulai]</td>
                         <td>$data[waktu_akhir]</td>
+                        <td><a href='jadwal_pasien_proses.php?id_jadwal=$data[id_jadwal]'>Buat Janji</a></td>
                         </tr>";
             }
             echo "</tbody>"

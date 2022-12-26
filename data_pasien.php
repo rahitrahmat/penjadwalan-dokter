@@ -50,7 +50,6 @@ if ($_SESSION['level'] == "") {
                     <li><a href="home_pasien.php">Halaman Utama</a></li>
                     <li><a href="data_pasien.php">Data Dokter</a></li>
                     <li><a href="jadwal_pasien.php">Jadwal Dokter</a></li>
-                    <li><a href="tambah_perjanjian_pasien.php">Perjanjian</a></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
                 <br class="clearfix" />
