@@ -125,13 +125,13 @@ ul h4 {
 
 #header {
 	padding: 45px;
-	position: relative;
+	text-align: center;
 	height: 140px;
 }
 
 #logo {
 	line-height: 168px;
-	left: 45px;
+	left: 180px;
 	height: 168px;
 	top: 0;
 	position: absolute;
@@ -148,6 +148,7 @@ ul h4 {
 	font-size: 3em;
 	display: inline;
 	margin-right: 0.25em;
+	color: rgb(233, 11, 11);
 }
 
 #logo span {
@@ -155,9 +156,11 @@ ul h4 {
 }
 
 #menu {
-	position: absolute;
+	position: relative;
+	overflow: hidden;
 	bottom: 0;
-	left: 0;
+	left: -45px;
+	top: 65px;
 	font-family: Abel, sans-serif;
 	margin: 0 0 0 0;
 	height: 70px;
@@ -173,6 +176,11 @@ ul h4 {
 	text-decoration: none;
 	font-size: 1.5em;
 	color: #000;
+}
+
+#menu a:hover {
+	background-color: #2979ff;
+	color :#000;
 }
 
 #menu ul {
@@ -289,12 +297,11 @@ ul h4 {
 
 #wrapper {
 	width: 1180px;
-	position: relative;
 	margin: 0 auto 0 auto;
 }
 
 .container{
-    position: absolute;
+	position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);

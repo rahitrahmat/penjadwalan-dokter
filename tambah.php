@@ -52,11 +52,6 @@ if ($_SESSION['level'] == "") {
                 <h1> <a href="tambah_jadwal.php">TAMBAH DATA PENJADWALAN</a></h1>
                 <br>
                 <br>
-                <h1> <a href="tambah_perjanjian_admin.php">TAMBAH DATA PERJANJIAN</a></h1>
-                <br>
-                <br>
-                <br>
-                <br>
         </div>
 
 </body>

@@ -8,28 +8,23 @@ if ($_SESSION['level'] == "") {
     header('Location: login.php?Admin=' . urlencode($Admin));
 }
 
-// cek apakah tombol daftar sudah diklik atau blum?
-if (isset($_POST['tambah'])) {
+if (isset($_GET['id_jadwal'])) {
 
-    // ambil data dari formulir
-    $nama = $_POST['nama'];
-    $nama_dokter = $_POST['nama_dokter'];
-    $hari = $_POST['hari'];
-    $waktu_mulai = $_POST['waktu_mulai'];
+    $id_jadwal = $_GET['id_jadwal'];
 
-    // buat query
-    $sql = mysqli_query($conn, "select * from dokter");
+    $sql = mysqli_query($conn, "select pasien.*, admin.username from admin
+    inner JOIN pasien on admin.nama = pasien.nama;");
     while ($data = mysqli_fetch_array($sql)) {
-        if ($data['nama_dokter'] == $nama) {
-            $id_dokter = $data['id_dokter'];
+        if (strtolower($data['username']) == $_SESSION['username']) {
+            $id_pasien = $data['id_pasien'];
         }
     }
 
-    if ($id_dokter) {
-        $query = mysqli_query($conn, "INSERT INTO perjanjian VALUES('','$id_pasien','$hari','$waktu_mulai','$waktu_akhir')");
+    if ($id_jadwal and $id_pasien) {
+        $query = mysqli_query($conn, "INSERT INTO perjanjian VALUES('','$id_pasien','$id_jadwal')");
     } else {
         echo "<script>alert('Nama yang dimasukkan tidak ada dalam daftar!')</script>";
-        echo "<script>window.open('tambah_jadwal.php','_self')</script>";
+        echo "<script>window.open('jadwal_pasien.php','_self')</script>";
     }
     // $sql = "INSERT INTO penjadwalan (id_jadwal, id_dokter, hari ,waktu_mulai, waktu_akhir) VALUE ('$id', '$id_dokter', '$hari', '$waktu_mulai', '$waktu_akhir')";
     // $query = mysqli_query($conn, $sql);
@@ -38,12 +33,13 @@ if (isset($_POST['tambah'])) {
     if ($query) {
         // kalau berhasil alihkan ke halaman list_masuk.php dengan status=sukses
         echo "<script>alert('Data Berhasil DITAMBAHKAN!')</script>";
-        echo "<script>window.open('jadwal_admin.php','_self')</script>";
+        echo "<script>window.open('jadwal_pasien.php','_self')</script>";
     } else {
         // kalau gagal alihkan ke halaman list_masuk.php dengan status=gagal
         echo "<script>alert('Data GAGAL DITAMBAHKAN!')</script>";
-        echo "<script>window.open('jadwal_admin.php','_self')</script>";
+        echo "<script>window.open('jadwal_pasien.php','_self')</script>";
     }
 } else {
     die("Akses dilarang...");
 }
+
