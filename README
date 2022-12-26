@@ -22,5 +22,5 @@ Tambahan;
 - Halaman nampilke janji sing digawe mbe pasien (DONE)✓✓
 - Halaman Buat janji pas login pasien (durung, bingung auto fill & relasi antar tabel sql e)
     sql tambah perjanjian_admin
-    IF dokter yg dipilih dengan jadwal yg dipilih sudah terisi, then gagal
-- navbar di data & jadwal iso diotak atik ga ya? logo ne dadi ilang neng 2 kui
+    IF dokter yg dipilih dengan jadwal yg dipilih sudah terisi, then gagal (DONE)
+- navbar di data & jadwal iso diotak atik ga ya? logo ne dadi ilang neng 2 kui (ON PROGRESS)
